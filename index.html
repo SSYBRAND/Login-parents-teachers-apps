@@ -1,0 +1,126 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class On Parents App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .container {
+            margin: 20px;
+        }
+        .logo {
+            margin-top: 20px;
+        }
+        .form-container {
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .submit-button button {
+            background-color: #cc4b4b;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-button button:hover {
+            background-color: #a83b3b;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        /* Preloader styles */
+        .preloader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .preloader img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/128/7856/7856126.png" alt="Class On Parents App Logo">
+        </div>
+        <div class="form-container">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="admissionNumber">Admission Number:</label>
+                    <input type="text" id="admissionNumber" name="admissionNumber" required>
+                </div>
+                <div class="submit-button">
+                    <button type="submit">Login</button>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+        </div>
+    </div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <img src="https://cdn-icons-png.flaticon.com/128/7856/7856126.png" alt="Loading...">
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const admissionNumber = document.getElementById('admissionNumber').value.trim();
+
+            // Replace these values with your actual data
+            const validName = 'Satyam';
+            const validAdmissionNumber = '961';
+
+            if (name === validName && admissionNumber === validAdmissionNumber) {
+                document.getElementById('preloader').style.display = 'flex'; // Show preloader
+                setTimeout(function() {
+                    window.location.href = 'https://ssybrand.github.io/Parent-Teacher-Apps-/'; // Redirect to the main page
+                }, 2000); // 2 seconds delay
+            } else {
+                document.getElementById('errorMessage').innerText = 'Invalid Name or Admission Number. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
